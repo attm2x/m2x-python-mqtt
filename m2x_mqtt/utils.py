@@ -37,7 +37,8 @@ def tags_to_server(tags):
 
 def from_server(name, value):
     if name == 'tags':
-        value = value.split(',')
+        if isinstance(value, str):
+            value = value.split(',')
     else:
         try:
             value = iso8601.parse_date(value)
