@@ -15,6 +15,10 @@ class Resource(object):
     def subpath(self, path):
         return self.item_path(self[self.ID_KEY]) + path
 
+    def refresh(self):
+        res = self.api.get(self.subpath(''))
+        self.data = self.from_server(res)
+
     @classmethod
     def create(cls, api, path=None, **attrs):
         itemize_options = attrs.pop('itemize_options', {})
