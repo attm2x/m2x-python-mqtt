@@ -6,6 +6,8 @@ import threading
 from paho.mqtt.client import MQTT_ERR_SUCCESS, Client as MQTTClient
 
 from m2x_mqtt.utils import DateTimeJSONEncoder
+from m2x_mqtt.v2.devices import Device
+from m2x_mqtt.v2.commands import Command
 
 
 class MQTTResponse(object):
@@ -66,6 +68,7 @@ class MQTTAPIBase(object):
     def mqtt(self):
         if not hasattr(self, '_mqtt_client'):
             self.responses = {}
+            self._commands = []
             self.ready = False
             client = MQTTClient()
             client.username_pw_set(self.apikey)
@@ -81,11 +84,19 @@ class MQTTAPIBase(object):
         return self._mqtt_client
 
     def _on_connect(self, client, userdata, flags, rc):
-        client.subscribe('m2x/{apikey}/responses'.format(apikey=self.apikey))
+        self._responses_topic = 'm2x/{apikey}/responses'.format(apikey=self.apikey)
+        self._commands_topic = 'm2x/{apikey}/commands'.format(apikey=self.apikey)
+        client.subscribe(self._responses_topic)
+        client.subscribe(self._commands_topic)
 
     def _on_message(self, client, userdata, msg):
-        msg = json.loads(msg.payload)
-        self.responses[msg['id']] = msg
+        topic = msg.topic
+        payload = json.loads(msg.payload)
+
+        if topic == self._responses_topic:
+            self.responses[payload['id']] = payload
+        elif topic == self._commands_topic:
+            self._commands.append(payload)
 
     def _on_subscribe(self, client, userdata, mid, granted_qos):
         self.ready = True
@@ -94,6 +105,12 @@ class MQTTAPIBase(object):
         parts = (self.PATH,) + parts
         return '/{0}'.format('/'.join(map(lambda p: p.strip('/'),
                                           filter(None, parts))))
+
+    def receive_commands(self):
+        while self._commands:
+            data = self._commands.pop(0)
+            device = Device(self, id=data['url'].split("/")[-3])
+            yield Command(self, device, **data)
 
     def wait_for_response(self, msg_id):
         timeout = self.timeout
