@@ -42,6 +42,9 @@ class MQTTAPIBase(object):
         self.client = client
         self._locals = threading.local()
 
+    def get(self, path, **kwargs):
+        return self.request(path, method='GET', **kwargs)
+
     def post(self, path, **kwargs):
         return self.request(path, method='POST', **kwargs)
 
