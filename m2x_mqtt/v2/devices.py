@@ -1,5 +1,6 @@
 from m2x_mqtt.v2.resource import Resource
 from m2x_mqtt.v2.streams import Stream
+from m2x_mqtt.v2.commands import Command
 
 
 class Device(Resource):
@@ -18,3 +19,10 @@ class Device(Resource):
 
     def update_location(self, **params):
         return self.api.put(self.subpath('/location'), data=params)
+
+    def command(self, id):
+        return Command(self.api, self, id=id)
+
+    def commands(self, **params):
+        res = self.api.get(self.subpath('/commands'), data=params)
+        return (Command(self.api, self, **data) for data in res[Command.ITEMS_KEY])
