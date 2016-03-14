@@ -32,13 +32,13 @@ def process_command(command):
     elif name == 'REPORT': process_report_command(command)
     else:
         reason = 'unknown command name; allowed names are: ' + str(ALLOWED_COMMANDS)
-        command.reject({ 'reason': reason })
+        command.reject(reason=reason)
 
 def process_say_command(command):
     try:
         message = command['data']['message']
     except KeyError:
-        command.reject({'reason': '"message" data is required'})
+        command.reject(reason='"message" data is required')
         return
 
     print("SAY: " + message)
