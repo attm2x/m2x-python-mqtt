@@ -24,7 +24,7 @@ setup(
     ],
     long_description=LONG_DESCRIPTION,
     install_requires=[
-        'iso8601==0.1.8',
+        'iso8601==0.1.9',
         'paho-mqtt==1.0'
     ],
     classifiers=[
