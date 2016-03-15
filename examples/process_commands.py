@@ -64,8 +64,9 @@ def process_received_commands(client):
         process_command(command)
 
 
-# Create a client instance using a primary device API key
-client = M2XClient(key=API_KEY)
+# Create a client instance using a primary device API key.
+# The keepalive parameter can be raised for low-bandwidth applications.
+client = M2XClient(key=API_KEY, keepalive=60)
 
 # Access the correspending device by ID
 device = client.device(DEVICE)
