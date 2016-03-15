@@ -38,8 +38,9 @@ class MQTTResponse(object):
 class MQTTAPIBase(object):
     PATH = '/'
 
-    def __init__(self, key, client, timeout=600, **kwargs):
+    def __init__(self, key, client, timeout=600, keepalive=60, **kwargs):
         self.timeout = timeout
+        self.keepalive = keepalive
         self.apikey = key
         self.client = client
         self._locals = threading.local()
@@ -75,7 +76,7 @@ class MQTTAPIBase(object):
             client.on_connect = self._on_connect
             client.on_message = self._on_message
             client.on_subscribe = self._on_subscribe
-            client.connect(self.client.endpoint.replace('mqtt://', ''))
+            client.connect(self.client.endpoint.replace('mqtt://', ''), keepalive=self.keepalive)
             self._mqtt_client = client
             # Start the loop and wait for the connection to be ready
             self._mqtt_client.loop_start()
