@@ -26,3 +26,6 @@ class Device(Resource):
     def commands(self, **params):
         res = self.api.get(self.subpath('/commands'), data=params)
         return (Command(self.api, self, **data) for data in res[Command.ITEMS_KEY])
+
+    def post_device_update(self, **params):
+        return self.api.post(self.subpath('/update'), **params)
