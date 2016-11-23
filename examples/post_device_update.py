@@ -1,12 +1,12 @@
 import os
 from m2x_mqtt.client import M2XClient
 
-'''
+"""
 This example demonstrates how to update single values to multiple streams to target device
 
 API Documentation:
-"https://m2x.att.com/developer/documentation/v2/device#Post-Device-Update--Single-Values-to-Multiple-Streams-"
-'''
+https://m2x.att.com/developer/documentation/v2/device#Post-Device-Update--Single-Values-to-Multiple-Streams-
+"""
 
 API_KEY = os.environ['API_KEY']
 DEVICE  = os.environ['DEVICE']
