@@ -21,3 +21,4 @@ class Time(Resource):
 
     def get_time_in_iso8601(self):
         return self.api.get(self.FORMAT_ISO8601)
+        
