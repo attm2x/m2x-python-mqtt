@@ -18,6 +18,6 @@ client = M2XClient(key=API_KEY)
 time = Time(client)
 
 # Getting the Time in various formats
-print "Server time in ISO8601 format: %s" %time.get_time_in_iso8601()
-print "Server time in seconds: %s" %time.get_time_in_seconds()
-print "Server time in milliseconds: %s" %time.get_time_in_millis()
+print("Server time in ISO8601 format: " + time.get_time_in_iso8601())
+print("Server time in seconds: " + time.get_time_in_seconds())
+print("Server time in milliseconds: " + time.get_time_in_millis())
