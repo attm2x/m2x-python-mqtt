@@ -32,6 +32,13 @@ class Resource(object):
         return cls(api, **options)
 
     @classmethod
+    def itemize(cls, api, entries, **options):
+        if cls.ITEMS_KEY and cls.ITEMS_KEY in entries:
+            entries = [cls.item(api, entry, **options)
+                       for entry in entries[cls.ITEMS_KEY]]
+        return entries
+
+    @classmethod
     def collection_path(self, **kwargs):
         return self.COLLECTION_PATH.format(**kwargs)
 

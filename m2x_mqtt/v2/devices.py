@@ -29,3 +29,8 @@ class Device(Resource):
 
     def post_device_update(self, **params):
         return self.api.post(self.subpath('/update'), **params)
+
+    @classmethod
+    def search(cls, api, **params):
+        response = api.post('devices/search', **params)
+        return cls.itemize(api, response)
