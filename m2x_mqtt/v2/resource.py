@@ -63,3 +63,12 @@ class Resource(object):
 
     def __getitem__(self, name):
         return self.data[name]
+
+    @classmethod
+    def list(cls, api, path=None, **params):
+        # Search parameters: query, tags, page, limit
+        itemize_options = params.pop('itemize_options', {})
+        params = cls.to_server(params)
+        response = api.get(path or cls.collection_path(**params),
+                           params=params)
+        return cls.itemize(api, response, **itemize_options)

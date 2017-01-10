@@ -14,3 +14,6 @@ class MQTTAPIVersion2(MQTTAPIBase):
 
     def distribution(self, id):
         return Distribution(self, id=id)
+
+    def devices(self, **params):
+        return Device.list(self, **params)
