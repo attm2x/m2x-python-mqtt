@@ -1,0 +1,612 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>AT&amp;T m2x_mqtt Python Client Library &#8212; AT&amp;T M2X Python-mqtt Client Library 0.4.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.4.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">AT&amp;T M2X Python-mqtt Client Library 0.4.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="module-m2x_mqtt.v2">
+<span id="at-t-m2x-mqtt-python-client-library"></span><h1>AT&amp;T m2x_mqtt Python Client Library<a class="headerlink" href="#module-m2x_mqtt.v2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-m2x_mqtt.v2.api">
+<span id="api-module"></span><h2>API Module<a class="headerlink" href="#module-m2x_mqtt.v2.api" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="m2x_mqtt.v2.api.MQTTAPIVersion2">
+<em class="property">class </em><code class="descclassname">m2x_mqtt.v2.api.</code><code class="descname">MQTTAPIVersion2</code><span class="sig-paren">(</span><em>key</em>, <em>client</em>, <em>timeout=600</em>, <em>keepalive=60</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x_mqtt/v2/api.html#MQTTAPIVersion2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x_mqtt.v2.api.MQTTAPIVersion2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">m2x_mqtt.api.MQTTAPIBase</span></code></p>
+<p>Wrapper for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/overview">AT&amp;T M2X API</a></p>
+<dl class="method">
+<dt id="m2x_mqtt.v2.api.MQTTAPIVersion2.create_device">
+<code class="descname">create_device</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x_mqtt/v2/api.html#MQTTAPIVersion2.create_device"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x_mqtt.v2.api.MQTTAPIVersion2.create_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Create-Device">Create Device</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The newly created Device</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#m2x_mqtt.v2.devices.Device" title="m2x_mqtt.v2.devices.Device">Device</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x_mqtt.v2.api.MQTTAPIVersion2.device">
+<code class="descname">device</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x_mqtt/v2/api.html#MQTTAPIVersion2.device"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x_mqtt.v2.api.MQTTAPIVersion2.device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#View-Device-Details">View Device Details</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; ID of the Device to retrieve</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The matching Device</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#m2x_mqtt.v2.devices.Device" title="m2x_mqtt.v2.devices.Device">Device</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x_mqtt.v2.api.MQTTAPIVersion2.devices">
+<code class="descname">devices</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x_mqtt/v2/api.html#MQTTAPIVersion2.devices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x_mqtt.v2.api.MQTTAPIVersion2.devices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#List-Devices">List Devices</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">List of <a class="reference internal" href="#m2x_mqtt.v2.devices.Device" title="m2x_mqtt.v2.devices.Device"><code class="xref py py-class docutils literal"><span class="pre">Device</span></code></a> objects</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#list">list</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x_mqtt.v2.api.MQTTAPIVersion2.distribution">
+<code class="descname">distribution</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x_mqtt/v2/api.html#MQTTAPIVersion2.distribution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x_mqtt.v2.api.MQTTAPIVersion2.distribution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/distribution#View-Distribution-Details">View Distribution Details</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; ID of the Distribution to retrieve</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The matching Distribution</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#m2x_mqtt.v2.distributions.Distribution" title="m2x_mqtt.v2.distributions.Distribution">Distribution</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-m2x_mqtt.v2.commands">
+<span id="commands-module"></span><h2>Commands Module<a class="headerlink" href="#module-m2x_mqtt.v2.commands" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="m2x_mqtt.v2.commands.Command">
+<em class="property">class </em><code class="descclassname">m2x_mqtt.v2.commands.</code><code class="descname">Command</code><span class="sig-paren">(</span><em>api</em>, <em>device</em>, <em>**data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x_mqtt/v2/commands.html#Command"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x_mqtt.v2.commands.Command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#m2x_mqtt.v2.resource.Resource" title="m2x_mqtt.v2.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">m2x_mqtt.v2.resource.Resource</span></code></a></p>
+<p>Wrapper for AT&amp;T M2X <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/commands">Commands API</a></p>
+<dl class="method">
+<dt id="m2x_mqtt.v2.commands.Command.process">
+<code class="descname">process</code><span class="sig-paren">(</span><em>**response_data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x_mqtt/v2/commands.html#Command.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x_mqtt.v2.commands.Command.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/commands#Device-Marks-a-Command-as-Processed">Device Marks a Command as Processed</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The API response, see M2X API docs for details</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x_mqtt.v2.commands.Command.reject">
+<code class="descname">reject</code><span class="sig-paren">(</span><em>**response_data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x_mqtt/v2/commands.html#Command.reject"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x_mqtt.v2.commands.Command.reject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/commands#Device-Marks-a-Command-as-Rejected">Device Marks a Command as Rejected</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The API response, see M2X API docs for details</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-m2x_mqtt.v2.devices">
+<span id="devices-module"></span><h2>Devices Module<a class="headerlink" href="#module-m2x_mqtt.v2.devices" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="m2x_mqtt.v2.devices.Device">
+<em class="property">class </em><code class="descclassname">m2x_mqtt.v2.devices.</code><code class="descname">Device</code><span class="sig-paren">(</span><em>api</em>, <em>**data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x_mqtt/v2/devices.html#Device"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x_mqtt.v2.devices.Device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#m2x_mqtt.v2.resource.Resource" title="m2x_mqtt.v2.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">m2x_mqtt.v2.resource.Resource</span></code></a></p>
+<p>Wrapper for AT&amp;T M2X <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device">Device API</a></p>
+<dl class="method">
+<dt id="m2x_mqtt.v2.devices.Device.command">
+<code class="descname">command</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x_mqtt/v2/devices.html#Device.command"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x_mqtt.v2.devices.Device.command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/commands#View-Command-Details">View Command Details</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; ID of the Command to retrieve</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The matching Command</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#m2x_mqtt.v2.commands.Command" title="m2x_mqtt.v2.commands.Command">Command</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x_mqtt.v2.devices.Device.commands">
+<code class="descname">commands</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x_mqtt/v2/devices.html#Device.commands"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x_mqtt.v2.devices.Device.commands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/commands#List-Sent-Commands">List Sent Commands</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">List of <a class="reference internal" href="#m2x_mqtt.v2.commands.Command" title="m2x_mqtt.v2.commands.Command"><code class="xref py py-class docutils literal"><span class="pre">Command</span></code></a> objects</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#list">list</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x_mqtt.v2.devices.Device.create_stream">
+<code class="descname">create_stream</code><span class="sig-paren">(</span><em>name</em>, <em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x_mqtt/v2/devices.html#Device.create_stream"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x_mqtt.v2.devices.Device.create_stream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Create-Update-Data-Stream">Create/Update Data Stream</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> &#8211; Name of the stream to be created</li>
+<li><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The newly created Stream</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="#m2x_mqtt.v2.streams.Stream" title="m2x_mqtt.v2.streams.Stream">Stream</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x_mqtt.v2.devices.Device.post_device_update">
+<code class="descname">post_device_update</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x_mqtt/v2/devices.html#Device.post_device_update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x_mqtt.v2.devices.Device.post_device_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Post-Device-Updates--Multiple-Values-to-Multiple-Streams-">Post Device Updates (Multiple Values to Multiple Streams)</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The API response, see M2X API docs for details</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x_mqtt.v2.devices.Device.post_updates">
+<code class="descname">post_updates</code><span class="sig-paren">(</span><em>**values</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x_mqtt/v2/devices.html#Device.post_updates"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x_mqtt.v2.devices.Device.post_updates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Post-Device-Updates--Multiple-Values-to-Multiple-Streams-">Post Device Updates (Multiple Values to Multiple Streams)</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>values</strong> (<a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)"><em>dict</em></a>) &#8211; The values being posted, formatted according to the API docs</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The API response, see M2X API docs for details</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x_mqtt.v2.devices.Device.stream">
+<code class="descname">stream</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x_mqtt/v2/devices.html#Device.stream"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x_mqtt.v2.devices.Device.stream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#View-Data-Stream">View Data Stream</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> &#8211; The name of the Stream being retrieved</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The matching Stream</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#m2x_mqtt.v2.streams.Stream" title="m2x_mqtt.v2.streams.Stream">Stream</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x_mqtt.v2.devices.Device.update_location">
+<code class="descname">update_location</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x_mqtt/v2/devices.html#Device.update_location"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x_mqtt.v2.devices.Device.update_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Update-Device-Location">Update Device Location</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The API response, see M2X API docs for details</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-m2x_mqtt.v2.distributions">
+<span id="distributions-module"></span><h2>Distributions Module<a class="headerlink" href="#module-m2x_mqtt.v2.distributions" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="m2x_mqtt.v2.distributions.Distribution">
+<em class="property">class </em><code class="descclassname">m2x_mqtt.v2.distributions.</code><code class="descname">Distribution</code><span class="sig-paren">(</span><em>api</em>, <em>**data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x_mqtt/v2/distributions.html#Distribution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x_mqtt.v2.distributions.Distribution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#m2x_mqtt.v2.resource.Resource" title="m2x_mqtt.v2.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">m2x_mqtt.v2.resource.Resource</span></code></a></p>
+<p>Wrapper for AT&amp;T M2X <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/distribution">Distribution API</a></p>
+<dl class="method">
+<dt id="m2x_mqtt.v2.distributions.Distribution.add_device">
+<code class="descname">add_device</code><span class="sig-paren">(</span><em>serial</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x_mqtt/v2/distributions.html#Distribution.add_device"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x_mqtt.v2.distributions.Distribution.add_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/distribution#Add-Device-to-an-existing-Distribution">Add Device to an Existing Distribution</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>serial</strong> &#8211; The unique (account-wide) serial for the DistributionDevice being added to the Distribution</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The newly created DistributionDevice</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">DistributionDevice</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-m2x_mqtt.v2.resource">
+<span id="resource-module"></span><h2>Resource Module<a class="headerlink" href="#module-m2x_mqtt.v2.resource" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="m2x_mqtt.v2.resource.Resource">
+<em class="property">class </em><code class="descclassname">m2x_mqtt.v2.resource.</code><code class="descname">Resource</code><span class="sig-paren">(</span><em>api</em>, <em>**data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x_mqtt/v2/resource.html#Resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x_mqtt.v2.resource.Resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>Generic methods for interacting with an M2X resource</p>
+<dl class="method">
+<dt id="m2x_mqtt.v2.resource.Resource.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x_mqtt/v2/resource.html#Resource.remove"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x_mqtt.v2.resource.Resource.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generic method for a resource&#8217;s Delete endpoint.</p>
+<p>Example endpoints:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Delete-Device">Delete Device</a></li>
+<li><a class="reference external" href="https://m2x.att.com/developer/documentation/v2/distribution#Delete-Distribution">Delete Distribution</a></li>
+<li><a class="reference external" href="https://m2x.att.com/developer/documentation/v2/collections#Delete-Collection">Delete Collection</a></li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The API response, see M2X API docs for details</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x_mqtt.v2.resource.Resource.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x_mqtt/v2/resource.html#Resource.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x_mqtt.v2.resource.Resource.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generic method for a resource&#8217;s Update endpoint.</p>
+<p>Example endpoints:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Update-Device-Details">Update Device Details</a></li>
+<li><a class="reference external" href="https://m2x.att.com/developer/documentation/v2/distribution#Update-Distribution-Details">Update Distribution Details</a></li>
+<li><a class="reference external" href="https://m2x.att.com/developer/documentation/v2/collections#Update-Collection-Details">Update Collection Details</a></li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attrs</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The API response, see M2X API docs for details</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-m2x_mqtt.v2.streams">
+<span id="streams-module"></span><h2>Streams Module<a class="headerlink" href="#module-m2x_mqtt.v2.streams" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="m2x_mqtt.v2.streams.Stream">
+<em class="property">class </em><code class="descclassname">m2x_mqtt.v2.streams.</code><code class="descname">Stream</code><span class="sig-paren">(</span><em>api</em>, <em>device</em>, <em>**data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x_mqtt/v2/streams.html#Stream"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x_mqtt.v2.streams.Stream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#m2x_mqtt.v2.resource.Resource" title="m2x_mqtt.v2.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">m2x_mqtt.v2.resource.Resource</span></code></a></p>
+<p>Methods for interacting AT&amp;T M2X Device Streams</p>
+<dl class="method">
+<dt id="m2x_mqtt.v2.streams.Stream.add_value">
+<code class="descname">add_value</code><span class="sig-paren">(</span><em>value</em>, <em>timestamp=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x_mqtt/v2/streams.html#Stream.add_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x_mqtt.v2.streams.Stream.add_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Update-Data-Stream-Value">Update Data Stream Value</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>value</strong> &#8211; The updated stream value</li>
+<li><strong>timestamp</strong> &#8211; The (optional) timestamp for the upadted value</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The API response, see M2X API docs for details</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x_mqtt.v2.streams.Stream.post_values">
+<code class="descname">post_values</code><span class="sig-paren">(</span><em>values</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x_mqtt/v2/streams.html#Stream.post_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x_mqtt.v2.streams.Stream.post_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Post-Data-Stream-Values">Post Data Stream Values</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>values</strong> (<a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)"><em>dict</em></a>) &#8211; Values to post, see M2X API docs for details</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The API response, see M2X API docs for details</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x_mqtt.v2.streams.Stream.update_value">
+<code class="descname">update_value</code><span class="sig-paren">(</span><em>value</em>, <em>timestamp=None</em><span class="sig-paren">)</span><a class="headerlink" href="#m2x_mqtt.v2.streams.Stream.update_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Update-Data-Stream-Value">Update Data Stream Value</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>value</strong> &#8211; The updated stream value</li>
+<li><strong>timestamp</strong> &#8211; The (optional) timestamp for the upadted value</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The API response, see M2X API docs for details</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-m2x_mqtt.v2.time">
+<span id="time-module"></span><h2>Time Module<a class="headerlink" href="#module-m2x_mqtt.v2.time" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="m2x_mqtt.v2.time.Time">
+<em class="property">class </em><code class="descclassname">m2x_mqtt.v2.time.</code><code class="descname">Time</code><span class="sig-paren">(</span><em>api</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x_mqtt/v2/time.html#Time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x_mqtt.v2.time.Time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#m2x_mqtt.v2.resource.Resource" title="m2x_mqtt.v2.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">m2x_mqtt.v2.resource.Resource</span></code></a></p>
+<p>Wrapper for AT&amp;T M2X <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/time">Time API</a></p>
+<dl class="method">
+<dt id="m2x_mqtt.v2.time.Time.get_time">
+<code class="descname">get_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x_mqtt/v2/time.html#Time.get_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x_mqtt.v2.time.Time.get_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/time">Get time</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The API response, see M2X API docs for details</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">AT&amp;T m2x_mqtt Python Client Library</a><ul>
+<li><a class="reference internal" href="#module-m2x_mqtt.v2.api">API Module</a></li>
+<li><a class="reference internal" href="#module-m2x_mqtt.v2.commands">Commands Module</a></li>
+<li><a class="reference internal" href="#module-m2x_mqtt.v2.devices">Devices Module</a></li>
+<li><a class="reference internal" href="#module-m2x_mqtt.v2.distributions">Distributions Module</a></li>
+<li><a class="reference internal" href="#module-m2x_mqtt.v2.resource">Resource Module</a></li>
+<li><a class="reference internal" href="#module-m2x_mqtt.v2.streams">Streams Module</a></li>
+<li><a class="reference internal" href="#module-m2x_mqtt.v2.time">Time Module</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">AT&amp;T M2X Python-mqtt Client Library 0.4.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, AT&amp;T.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

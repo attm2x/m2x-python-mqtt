@@ -2,6 +2,8 @@ from m2x_mqtt.utils import attrs_to_server, attrs_from_server
 
 
 class Resource(object):
+    """ Generic methods for interacting with an M2X resource
+    """
     COLLECTION_PATH = ''
     ITEM_PATH = ''
     ID_KEY = 'id'
@@ -11,6 +13,41 @@ class Resource(object):
     def __init__(self, api, **data):
         self.api = api
         self.data = self.from_server(data)
+
+    def update(self, **attrs):
+        """ Generic method for a resource's Update endpoint.
+
+        Example endpoints:
+
+        * `Update Device Details <https://m2x.att.com/developer/documentation/v2/device#Update-Device-Details>`_
+        * `Update Distribution Details <https://m2x.att.com/developer/documentation/v2/distribution#Update-Distribution-Details>`_
+        * `Update Collection Details <https://m2x.att.com/developer/documentation/v2/collections#Update-Collection-Details>`_
+
+        :param attrs: Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.
+
+        :return: The API response, see M2X API docs for details
+        :rtype: dict
+
+        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request
+        """
+        self.data.update(self.item_update(self.api, self.id, **attrs))
+        return self.data
+
+    def remove(self):
+        """ Generic method for a resource's Delete endpoint.
+
+        Example endpoints:
+
+        * `Delete Device <https://m2x.att.com/developer/documentation/v2/device#Delete-Device>`_
+        * `Delete Distribution <https://m2x.att.com/developer/documentation/v2/distribution#Delete-Distribution>`_
+        * `Delete Collection <https://m2x.att.com/developer/documentation/v2/collections#Delete-Collection>`_
+
+        :return: The API response, see M2X API docs for details
+        :rtype: dict
+
+        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request
+        """
+        return self.api.delete(self.item_path(self.id))
 
     def subpath(self, path):
         return self.item_path(self[self.ID_KEY]) + path

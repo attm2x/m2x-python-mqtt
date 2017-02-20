@@ -2,6 +2,8 @@ from m2x_mqtt.v2.resource import Resource
 
 
 class Time(Resource):
+    """ Wrapper for AT&T M2X `Time API <https://m2x.att.com/developer/documentation/v2/time>`_
+    """
     COLLECTION_PATH = 'time'
     FORMAT_SECONDS = "time/seconds"
     FORMAT_MILLIS = "time/millis"
@@ -11,6 +13,13 @@ class Time(Resource):
         super(Time, self).__init__(api)
 
     def get_time(self):
+        """ Method for `Get time <https://m2x.att.com/developer/documentation/v2/time>`_ endpoint.
+
+        :return: The API response, see M2X API docs for details
+        :rtype: dict
+
+        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request
+        """
         return self.api.get(self.COLLECTION_PATH)
 
     def get_time_in_millis(self):

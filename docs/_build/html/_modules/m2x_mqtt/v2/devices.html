@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>m2x_mqtt.v2.devices &#8212; AT&amp;T M2X Python-mqtt Client Library 0.4.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.4.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">AT&amp;T M2X Python-mqtt Client Library 0.4.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for m2x_mqtt.v2.devices</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">m2x_mqtt.v2.resource</span> <span class="k">import</span> <span class="n">Resource</span>
+<span class="kn">from</span> <span class="nn">m2x_mqtt.v2.streams</span> <span class="k">import</span> <span class="n">Stream</span>
+<span class="kn">from</span> <span class="nn">m2x_mqtt.v2.commands</span> <span class="k">import</span> <span class="n">Command</span>
+
+
+<div class="viewcode-block" id="Device"><a class="viewcode-back" href="../../../index.html#m2x_mqtt.v2.devices.Device">[docs]</a><span class="k">class</span> <span class="nc">Device</span><span class="p">(</span><span class="n">Resource</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Wrapper for AT&amp;T M2X `Device API &lt;https://m2x.att.com/developer/documentation/v2/device&gt;`_</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">COLLECTION_PATH</span> <span class="o">=</span> <span class="s1">&#39;devices&#39;</span>
+    <span class="n">ITEM_PATH</span> <span class="o">=</span> <span class="s1">&#39;devices/</span><span class="si">{id}</span><span class="s1">&#39;</span>
+    <span class="n">ITEMS_KEY</span> <span class="o">=</span> <span class="s1">&#39;devices&#39;</span>
+
+<div class="viewcode-block" id="Device.stream"><a class="viewcode-back" href="../../../index.html#m2x_mqtt.v2.devices.Device.stream">[docs]</a>    <span class="k">def</span> <span class="nf">stream</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Method for `View Data Stream &lt;https://m2x.att.com/developer/documentation/v2/device#View-Data-Stream&gt;`_ endpoint.</span>
+
+<span class="sd">        :param name: The name of the Stream being retrieved</span>
+
+<span class="sd">        :return: The matching Stream</span>
+<span class="sd">        :rtype: Stream</span>
+
+<span class="sd">        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Stream</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Device.create_stream"><a class="viewcode-back" href="../../../index.html#m2x_mqtt.v2.devices.Device.create_stream">[docs]</a>    <span class="k">def</span> <span class="nf">create_stream</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Method for `Create/Update Data Stream &lt;https://m2x.att.com/developer/documentation/v2/device#Create-Update-Data-Stream&gt;`_ endpoint.</span>
+
+<span class="sd">        :param name: Name of the stream to be created</span>
+<span class="sd">        :param params: Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</span>
+
+<span class="sd">        :return: The newly created Stream</span>
+<span class="sd">        :rtype: Stream</span>
+
+<span class="sd">        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Stream</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Device.post_updates"><a class="viewcode-back" href="../../../index.html#m2x_mqtt.v2.devices.Device.post_updates">[docs]</a>    <span class="k">def</span> <span class="nf">post_updates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">values</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Method for `Post Device Updates (Multiple Values to Multiple Streams) &lt;https://m2x.att.com/developer/documentation/v2/device#Post-Device-Updates--Multiple-Values-to-Multiple-Streams-&gt;`_ endpoint.</span>
+
+<span class="sd">        :param values: The values being posted, formatted according to the API docs</span>
+<span class="sd">        :type values: dict</span>
+
+<span class="sd">        :return: The API response, see M2X API docs for details</span>
+<span class="sd">        :rtype: dict</span>
+
+<span class="sd">        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subpath</span><span class="p">(</span><span class="s1">&#39;/updates&#39;</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">values</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Device.update_location"><a class="viewcode-back" href="../../../index.html#m2x_mqtt.v2.devices.Device.update_location">[docs]</a>    <span class="k">def</span> <span class="nf">update_location</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Method for `Update Device Location &lt;https://m2x.att.com/developer/documentation/v2/device#Update-Device-Location&gt;`_ endpoint.</span>
+
+<span class="sd">        :param params: Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</span>
+
+<span class="sd">        :return: The API response, see M2X API docs for details</span>
+<span class="sd">        :rtype: dict</span>
+
+<span class="sd">        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subpath</span><span class="p">(</span><span class="s1">&#39;/location&#39;</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">params</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Device.command"><a class="viewcode-back" href="../../../index.html#m2x_mqtt.v2.devices.Device.command">[docs]</a>    <span class="k">def</span> <span class="nf">command</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Method for `View Command Details &lt;https://m2x.att.com/developer/documentation/v2/commands#View-Command-Details&gt;`_ endpoint.</span>
+
+<span class="sd">        :param id: ID of the Command to retrieve</span>
+<span class="sd">        :type id: str</span>
+
+<span class="sd">        :return: The matching Command</span>
+<span class="sd">        :rtype: Command</span>
+
+<span class="sd">        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Command</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Device.commands"><a class="viewcode-back" href="../../../index.html#m2x_mqtt.v2.devices.Device.commands">[docs]</a>    <span class="k">def</span> <span class="nf">commands</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Method for `List Sent Commands &lt;https://m2x.att.com/developer/documentation/v2/commands#List-Sent-Commands&gt;`_ endpoint.</span>
+
+<span class="sd">        :param params: Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</span>
+
+<span class="sd">        :return: List of :class:`.Command` objects</span>
+<span class="sd">        :rtype: `list &lt;https://docs.python.org/2/library/functions.html#list&gt;`_</span>
+
+<span class="sd">        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subpath</span><span class="p">(</span><span class="s1">&#39;/commands&#39;</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">Command</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">data</span><span class="p">)</span> <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">res</span><span class="p">[</span><span class="n">Command</span><span class="o">.</span><span class="n">ITEMS_KEY</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="Device.post_device_update"><a class="viewcode-back" href="../../../index.html#m2x_mqtt.v2.devices.Device.post_device_update">[docs]</a>    <span class="k">def</span> <span class="nf">post_device_update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Method for `Post Device Updates (Multiple Values to Multiple Streams) &lt;https://m2x.att.com/developer/documentation/v2/device#Post-Device-Updates--Multiple-Values-to-Multiple-Streams-&gt;`_ endpoint.</span>
+
+<span class="sd">        :param params: Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</span>
+
+<span class="sd">        :return: The API response, see M2X API docs for details</span>
+<span class="sd">        :rtype: dict</span>
+
+<span class="sd">        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subpath</span><span class="p">(</span><span class="s1">&#39;/update&#39;</span><span class="p">),</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span></div>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">api</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">):</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;devices/search&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">itemize</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">AT&amp;T M2X Python-mqtt Client Library 0.4.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, AT&amp;T.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>
