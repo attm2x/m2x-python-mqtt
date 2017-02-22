@@ -1,4 +1,4 @@
-.. AT&T m2x_mqtt Python Client Library documentation master file, created by
+.. AT&T M2X MQTT Python Client Library documentation master file, created by
    sphinx-quickstart on Fri Feb 17 14:54:53 2017.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
@@ -6,7 +6,7 @@
 .. toctree::
    :maxdepth: 2
 
-AT&T m2x_mqtt Python Client Library
+AT&T M2X MQTT Python Client Library
 ===================================
 
 .. automodule:: m2x_mqtt.v2
