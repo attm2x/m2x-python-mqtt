@@ -1,6 +1,6 @@
 # AT&T's M2X MQTT Python Client
 
-|docs|
+[![Documentation Status](https://readthedocs.org/projects/m2x-python-mqtt/badge/?version=latest)](http://m2x-python-mqtt.readthedocs.io/en/latest/?badge=latest)
 
 [AT&T M2X](http://m2x.att.com) is a cloud-based fully managed time-series data storage service for network connected machine-to-machine (M2M) devices and the Internet of Things (IoT). 
 
