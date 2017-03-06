@@ -21,8 +21,6 @@ class Stream(Resource):
 
         :return: The API response, see M2X API docs for details
         :rtype: dict
-
-        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request
         """
         data = {'value': value}
         if timestamp:
@@ -39,8 +37,6 @@ class Stream(Resource):
 
         :return: The API response, see M2X API docs for details
         :rtype: dict
-
-        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request
         """
         return self.api.post(self.subpath('/values'), data={
             'values': values

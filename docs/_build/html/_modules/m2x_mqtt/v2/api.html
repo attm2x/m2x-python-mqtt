@@ -66,8 +66,6 @@
 
 <span class="sd">        :return: The matching Device</span>
 <span class="sd">        :rtype: Device</span>
-
-<span class="sd">        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">Device</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span></div>
 
@@ -78,8 +76,6 @@
 
 <span class="sd">        :return: The newly created Device</span>
 <span class="sd">        :rtype: Device</span>
-
-<span class="sd">        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">Device</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span></div>
 
@@ -91,10 +87,7 @@
 
 <span class="sd">        :return: The matching Distribution</span>
 <span class="sd">        :rtype: Distribution</span>
-
-<span class="sd">        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;distrbtn&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">Distribution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="MQTTAPIVersion2.devices"><a class="viewcode-back" href="../../../index.html#m2x_mqtt.v2.api.MQTTAPIVersion2.devices">[docs]</a>    <span class="k">def</span> <span class="nf">devices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">):</span>
@@ -104,8 +97,6 @@
 
 <span class="sd">        :return: List of :class:`.Device` objects</span>
 <span class="sd">        :rtype: `list &lt;https://docs.python.org/2/library/functions.html#list&gt;`_</span>
-
-<span class="sd">        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">Device</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span></div></div>
 </pre></div>

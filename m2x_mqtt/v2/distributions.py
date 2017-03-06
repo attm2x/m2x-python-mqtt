@@ -20,8 +20,6 @@ class Distribution(Resource):
 
         :return: The newly created DistributionDevice
         :rtype: DistributionDevice
-
-        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request
         """
         return DistributionDevice.create(self.api, distribution_id=self.id,
                                          serial=serial)

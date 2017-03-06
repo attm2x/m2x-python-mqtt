@@ -27,8 +27,6 @@ class Resource(object):
 
         :return: The API response, see M2X API docs for details
         :rtype: dict
-
-        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request
         """
         self.data.update(self.item_update(self.api, self.id, **attrs))
         return self.data
@@ -44,8 +42,6 @@ class Resource(object):
 
         :return: The API response, see M2X API docs for details
         :rtype: dict
-
-        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request
         """
         return self.api.delete(self.item_path(self.id))
 
