@@ -16,8 +16,6 @@ class MQTTAPIVersion2(MQTTAPIBase):
 
         :return: The matching Device
         :rtype: Device
-
-        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request
         """
         return Device(self, id=id)
 
@@ -28,8 +26,6 @@ class MQTTAPIVersion2(MQTTAPIBase):
 
         :return: The newly created Device
         :rtype: Device
-
-        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request
         """
         return Device.create(self, **params)
 
@@ -41,8 +37,6 @@ class MQTTAPIVersion2(MQTTAPIBase):
 
         :return: The matching Distribution
         :rtype: Distribution
-
-        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request
         """
         return Distribution(self, id=id)
 
@@ -53,7 +47,5 @@ class MQTTAPIVersion2(MQTTAPIBase):
 
         :return: List of :class:`.Device` objects
         :rtype: `list <https://docs.python.org/2/library/functions.html#list>`_
-
-        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request
         """
         return Device.list(self, **params)

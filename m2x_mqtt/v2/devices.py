@@ -17,8 +17,6 @@ class Device(Resource):
 
         :return: The matching Stream
         :rtype: Stream
-
-        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request
         """
         return Stream(self.api, self, name=name)
 
@@ -30,8 +28,6 @@ class Device(Resource):
 
         :return: The newly created Stream
         :rtype: Stream
-
-        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request
         """
         return Stream.create(self.api, self, name, **params)
 
@@ -43,8 +39,6 @@ class Device(Resource):
 
         :return: The API response, see M2X API docs for details
         :rtype: dict
-
-        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request
         """
         return self.api.post(self.subpath('/updates'), data=values)
 
@@ -55,8 +49,6 @@ class Device(Resource):
 
         :return: The API response, see M2X API docs for details
         :rtype: dict
-
-        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request
         """
         return self.api.put(self.subpath('/location'), data=params)
 
@@ -68,8 +60,6 @@ class Device(Resource):
 
         :return: The matching Command
         :rtype: Command
-
-        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request
         """
         return Command(self.api, self, id=id)
 
@@ -80,8 +70,6 @@ class Device(Resource):
 
         :return: List of :class:`.Command` objects
         :rtype: `list <https://docs.python.org/2/library/functions.html#list>`_
-
-        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request
         """
         res = self.api.get(self.subpath('/commands'), data=params)
         return (Command(self.api, self, **data) for data in res[Command.ITEMS_KEY])
@@ -93,8 +81,6 @@ class Device(Resource):
 
         :return: The API response, see M2X API docs for details
         :rtype: dict
-
-        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request
         """
         return self.api.post(self.subpath('/update'), **params)
 

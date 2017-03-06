@@ -17,8 +17,6 @@ class Time(Resource):
 
         :return: The API response, see M2X API docs for details
         :rtype: dict
-
-        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request
         """
         return self.api.get(self.COLLECTION_PATH)
 

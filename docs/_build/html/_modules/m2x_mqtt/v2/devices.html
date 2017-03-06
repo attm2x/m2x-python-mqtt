@@ -67,8 +67,6 @@
 
 <span class="sd">        :return: The matching Stream</span>
 <span class="sd">        :rtype: Stream</span>
-
-<span class="sd">        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">Stream</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span></div>
 
@@ -80,8 +78,6 @@
 
 <span class="sd">        :return: The newly created Stream</span>
 <span class="sd">        :rtype: Stream</span>
-
-<span class="sd">        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">Stream</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span></div>
 
@@ -93,8 +89,6 @@
 
 <span class="sd">        :return: The API response, see M2X API docs for details</span>
 <span class="sd">        :rtype: dict</span>
-
-<span class="sd">        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subpath</span><span class="p">(</span><span class="s1">&#39;/updates&#39;</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">values</span><span class="p">)</span></div>
 
@@ -105,8 +99,6 @@
 
 <span class="sd">        :return: The API response, see M2X API docs for details</span>
 <span class="sd">        :rtype: dict</span>
-
-<span class="sd">        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subpath</span><span class="p">(</span><span class="s1">&#39;/location&#39;</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">params</span><span class="p">)</span></div>
 
@@ -118,8 +110,6 @@
 
 <span class="sd">        :return: The matching Command</span>
 <span class="sd">        :rtype: Command</span>
-
-<span class="sd">        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">Command</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span></div>
 
@@ -130,8 +120,6 @@
 
 <span class="sd">        :return: List of :class:`.Command` objects</span>
 <span class="sd">        :rtype: `list &lt;https://docs.python.org/2/library/functions.html#list&gt;`_</span>
-
-<span class="sd">        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subpath</span><span class="p">(</span><span class="s1">&#39;/commands&#39;</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">Command</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">data</span><span class="p">)</span> <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">res</span><span class="p">[</span><span class="n">Command</span><span class="o">.</span><span class="n">ITEMS_KEY</span><span class="p">])</span></div>
@@ -143,8 +131,6 @@
 
 <span class="sd">        :return: The API response, see M2X API docs for details</span>
 <span class="sd">        :rtype: dict</span>
-
-<span class="sd">        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subpath</span><span class="p">(</span><span class="s1">&#39;/update&#39;</span><span class="p">),</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span></div>
 

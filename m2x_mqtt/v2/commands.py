@@ -21,8 +21,6 @@ class Command(Resource):
 
         :return: The API response, see M2X API docs for details
         :rtype: dict
-
-        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request
         """
         return self.api.post(self.subpath('/process'), data=response_data)
 
@@ -33,7 +31,5 @@ class Command(Resource):
 
         :return: The API response, see M2X API docs for details
         :rtype: dict
-
-        :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request
         """
         return self.api.post(self.subpath('/reject'), data=response_data)
